@@ -1,3 +1,7 @@
+<body>
+
+<p id="notice"></p>
+
 <h1>Books</h1>
 
 <table>
@@ -14,23 +18,37 @@
   </thead>
 
   <thead>
-    <td><%= link_to "Show", book_path(book), method: :patch %></td>
-    <td><%= link_to "Edit", book_path(book) %></td>
-    <td><%= link_to "Destroy", book_path(book), method: :deite, data: { confirm: "Are you sure?" } %></td>
+    <td><%= link_to "Show", book_path(book) %></td>
+    <td><%= link_to "Edit", edit_book_path(book) %></td>
+    <td><%= link_to "Destroy", book_path(book), method: :delete, data: { confirm: "Are you sure?" } %></td>
 
   </thead>
 </table>
 
 <% end %>
 
-<h1>New book</h1>
+<h2>New book</h2>
 
 <%= form_with model: @book do |f| %>
-  <h4>Title</h4>
+
+<div class="field">
+
+  <ladel for="book_title">Title</ladel>
   <%= f.text_field :title %>
 
-  <h4>Body</h4>
+</div>
+
+<div class="field">
+
+  <ladel for="book_body">Body</ladel>
   <%= f.text_area :body %>
 
+</div>
+
+<div class="action">
   <%= f.submit 'Create Book' %>
 <% end %>
+
+</div>
+
+</body>
