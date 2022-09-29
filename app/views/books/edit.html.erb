@@ -23,15 +23,17 @@
 
   <div class="field">
 
-  <ladel for="book_field">Title</ladel>
-   <%= f.text_field :title %>
+  <!--<ladel for="book_field">Title</ladel>-->
+  <div><%= f.label :Title %></div>
+  <div><%= f.text_field :title %></div>
 
   </div>
 
   <div class="field">
 
-  <ladel for="book_field">Body</ladel>
-   <%= f.text_area :body %>
+  <!--<ladel for="book_field">Body</ladel>-->
+  <div><%= f.label :Body %></div>
+  <div><%= f.text_area :body %></div>
 
   </div>
 
@@ -47,6 +49,6 @@
 
  <td><%= link_to "Show", book_path(@book) %></td>
   |
- <td><%= link_to "Back", books_path(@book) %></td>
+ <td><%= link_to "Back", books_path %></td>
 
  </body>

@@ -10,20 +10,27 @@
 
       <th>Body</th>
 
-      <% @books.each do |book| %>
-
     </tr>
   </thead>
 
-  <thead>
+  <tbody>
+
+    <% @books.each do |book| %>
+
+    <tr>
+
+    <td><%= book.title %></td>
+    <td><%= book.body %></td>
+
     <td><%= link_to "Show", book_path(book) %></td>
     <td><%= link_to "Edit", edit_book_path(book) %></td>
     <td><%= link_to "Destroy", book_path(book), method: :delete, data: { confirm: "Are you sure?" } %></td>
 
-  </thead>
-</table>
+    </tr>
+    <% end %>
 
-<% end %>
+  </tbody>
+</table>
 
 <h2>New book</h2>
 
@@ -40,22 +47,24 @@
 
 <div class="field">
 
-  <ladel for="book_title">Title</ladel>
-  <%= f.text_field :title %>
+  <!--<ladel for="book_title">Title</ladel>-->
+  <div><%= f.label :Title %></div>
+  <div><%= f.text_field :title %></div>
 
 </div>
 
 <div class="field">
 
-  <ladel for="book_body">Body</ladel>
-  <%= f.text_area :body %>
+  <!--<ladel for="book_body">Body</ladel>-->
+  <div><%= f.label :Body %></div>
+  <div><%= f.text_area :body %></div>
 
 </div>
 
 <div class="action">
   <%= f.submit 'Create Book' %>
-<% end %>
-
 </div>
+
+<% end %>
 
 </body>
