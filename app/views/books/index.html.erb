@@ -1,5 +1,11 @@
 <body>
 
+  <!----下追加--->
+  <% if flash[:alert] %>
+      <p class="notice"><%= alert %></p>
+  <% end %>
+  <!----下追加--->
+
 <h1>Books</h1>
 
 <table>
@@ -35,12 +41,18 @@
 <h2>New book</h2>
 
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+<!----<下追加>--->
+　<div id="error_explanation">
+　  <!--<下追加>-->
+　  <h2><%= @book.errors.count %> error prohibited this book from being saved:　</h2>
+  <!--<%= @book.errors.count %>件のエラーが発生しました-->
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <!--<下追加>-->
+  </div>
 <% end %>
 
 <%= form_with model: @book do |f| %>
